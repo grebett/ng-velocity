@@ -1,0 +1,108 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>ng-velocity</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      padding:20px;
+    }
+
+    h4 {
+      margin-top: 20px;
+    }
+
+    #mydiv {
+      background: cadetblue;
+      width: 100px;
+      height: 100px;
+    }
+
+    #myotherdiv {
+      background: indianred;
+      width: 100px;
+      height: 100px;
+      margin-top:10px;
+    }
+
+    #mythirddiv {
+      background: mediumpurple;
+      width: 100px;
+      height: 100px;
+      margin-top:10px;
+    }
+
+    .classy {
+      background: yellowgreen;
+      width: 100px;
+      height: 100px;
+      margin-top:10px;
+    }
+  </style>
+</head>
+<body ng-controller="MainController">
+
+<h1>{{title}}</h1>
+
+<p>
+  AngularJS directive for <a href="http://julian.com/research/velocity/">velocity.js</a> custom animation.
+</p>
+<p>
+  For Velocity UI integration, check one of these two libraries : <br/>
+  <a href="https://github.com/cgwyllie/angular-velocity">https://github.com/cgwyllie/angular-velocity</a> <br/>
+  <a href="https://github.com/rosslavery/velocity-ui-angular">https://github.com/rosslavery/velocity-ui-angular</a>
+</p>
+<hr/>
+
+<h3>Animation and chained animation based on id</h3>
+<h4>#mydiv</h4>
+<p>
+  Click on one div will trigger <code>velocity</code> attribute effect, after <code>data-delay</code> ms. <br/>
+  If <code>data-follow</code> is provided, trigger next the target element(s) animation with optional <code>data-follow-delay</code> overwriting initial animation delay.
+</p>
+<h5>Code:</h5>
+<pre>&lt;div id="mydiv" velocity="effect1" data-delay="500" data-follow="myotherdiv" data-follow-delay="2000"&gt;</pre>
+<div id="mydiv" velocity="effect1" data-delay="500" data-follow="myotherdiv" data-follow-delay="2000"></div>
+
+<h4>#myotherdiv</h4>
+<h5>Code:</h5>
+<pre>&lt;iv id="myotherdiv" velocity="effect1" data-follow="mydiv" data-follow-delay="100"&gt;</pre>
+<div id="myotherdiv" velocity="effect1" data-follow="mydiv" data-follow-delay="100"></div>
+
+<hr/>
+<h3>Animation and chained animation based on class</h3>
+<h4>#myotherdiv</h4>
+<p>Click on this div will animate it and trigger animation for the two <code>.classy</code> divs below.</p>
+<h5>Code:</h5>
+<pre>&lt;id="mythirddiv" velocity="effect1" data-follow=".classy" data-follow-delay="1000"&gt;</pre>
+<div id="mythirddiv" velocity="effect1" data-follow=".classy" data-follow-delay="1000"></div>
+
+<h4>.classy</h4>
+<h5>Code:</h5>
+<pre>&lt;div class="classy" velocity="effect1"&gt;</pre>
+<div class="classy" velocity="effect1"></div>
+<div class="classy" velocity="effect1"></div>
+
+<!-- We could get rid of jquery, and perhaps lodash -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+<!-- codemirror for presentation -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.min.js"></script>
+
+<!-- angular -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-animate.min.js"></script>
+
+<!-- velocity -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
+<script src="velocity.wrapper.js"></script>
+
+<!-- main -->
+<script src="test.controller.js"></script>
+<script src="ng-velocity.animation.js"></script>
+<script src="ng-velocity.directive.js"></script>
+<!--<script src="test.js"></script>-->
+</body>
+</html>
