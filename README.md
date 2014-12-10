@@ -20,3 +20,8 @@ Where :
 For example of usage, open the __test.html__ file.
 
 This directive may be still not perfect. All improvement are welcome !
+
+
+For Velocity UI integration, check one of these two libraries : <br>
+https://github.com/cgwyllie/angular-velocity <br>
+https://github.com/rosslavery/velocity-ui-angular
