@@ -1,4 +1,4 @@
-ng-velocity
+ng-velocity     (v0.1.1)
 ===========
 
 AngularJS directive for animation with velocity (or any third party JavaScript libraries)
